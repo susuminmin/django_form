@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}아티클::Article{% endblock title %}
+
+{% block body %}
+<h1>Articles</h1>
+<!-- [NEW] 누르면 이동할 수 있게끔...-->
+<a href="{% url 'articles:create' %}">[NEW]</a>
+<hr>
+{% for article in articles %}
+<div>
+  <h3>#{{ article.pk }} {{ article.title }}</h3>
+  <p>{{ article.created_at }}</p>
+  <!-- detail 페이지로 이동할 때 ! primary key 가 있어야 해당 url 로 이동 가능 -->
+  <a href="{% url 'articles:detail' article.pk %}">[DETAIL]</a>
+</div>
+<br>
+{% empty %}
+<p>아직 게시글이 없읍니다 8ㅅ8</p>
+{% endfor %}
+{% endblock body %}

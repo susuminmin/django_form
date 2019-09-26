@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}아티클 생성::Article{% endblock title %}
+
+{% block body %}
+<h1>새로운 김혜련 STORY 생성</h1>
+<a href="{% url 'articles:index' %}">[BACK]</a>
+<hr>
+<form action="#" method='POST'>
+  {% csrf_token %}
+  {% comment %} <label for="title">타이틀: </label><br>
+  <input type="text" name='title' id='title'><br> <!-- id 따라 간다 -->
+
+  <!-- name 은 어떤 이름으로 보낼거냐. id는 라벨이 뭘 가리키고 있는거냐 의미 -->
+  <label for="content">내용: </label><br>
+  <textarea name="content" id="content" cols="30" rows="10"></textarea><br> {% endcomment %}
+
+  <!-- view 함수에서 context = {'form': form} 로 넘기기 때문에 사용 가능 -->
+  {{ form.as_p }}
+
+  <button type="submit">생성하기</button>
+</form>
+
+
+{% endblock body %}
+
+<h1></h1>
