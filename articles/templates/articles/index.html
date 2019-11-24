@@ -3,6 +3,7 @@
 {% block title %}아티클::Article{% endblock title %}
 
 {% block body %}
+
 <h1>Articles</h1>
 <!-- [NEW] 누르면 이동할 수 있게끔...-->
 <a href="{% url 'articles:create' %}">[NEW]</a>
@@ -18,4 +19,5 @@
 {% empty %}
 <p>아직 게시글이 없읍니다 8ㅅ8</p>
 {% endfor %}
+
 {% endblock body %}
